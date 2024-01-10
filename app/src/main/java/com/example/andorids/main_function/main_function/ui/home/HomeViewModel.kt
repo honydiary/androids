@@ -1,4 +1,4 @@
-package com.example.andorids.ui.home
+package com.example.andorids.main_function.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

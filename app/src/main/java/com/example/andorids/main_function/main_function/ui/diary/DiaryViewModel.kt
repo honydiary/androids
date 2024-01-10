@@ -1,4 +1,4 @@
-package com.example.andorids.ui.diary
+package com.example.andorids.main_function.ui.diary
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

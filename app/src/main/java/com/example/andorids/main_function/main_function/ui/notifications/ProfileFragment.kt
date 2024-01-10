@@ -1,17 +1,16 @@
-package com.example.andorids.ui.diary
+package com.example.andorids.main_function.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.andorids.databinding.FragmentDiaryBinding
+import com.example.andorids.databinding.FragmentProfileBinding
 
-class DiaryFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentDiaryBinding? = null
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,10 +21,10 @@ class DiaryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val diaryViewModel =
-            ViewModelProvider(this).get(DiaryViewModel::class.java)
+        val profileViewModel =
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentDiaryBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
