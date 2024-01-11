@@ -16,10 +16,10 @@
             android:name=".DiaryActivity"
             android:exported="false" />
         <activity
-            android:name=".main_function.main_function.StartActivity"
+            android:name=".main_function.main_function.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".main_function.login_function.MainActivity"
+            android:name=".main_function.login_function.StartActivity"
             android:exported="true"
             android:label="@string/app_name" >
             <intent-filter>
