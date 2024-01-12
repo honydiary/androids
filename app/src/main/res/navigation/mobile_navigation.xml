@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/permissionFragment">
+    app:startDestination="@id/fragmentHome">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/fragmentHome"
         android:name="com.example.andorids.main_function.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
@@ -19,15 +19,15 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_diary"
+        android:id="@+id/fragmentDiary"
         android:name="com.example.andorids.main_function.ui.diary.DiaryFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_diary"
         tools:layout="@layout/fragment_diary" />
 
     <fragment
-        android:id="@+id/navigation_profile"
+        android:id="@+id/fragmentProfile"
         android:name="com.example.andorids.main_function.ui.notifications.ProfileFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/recodeDiary"
@@ -39,13 +39,4 @@
         android:name="com.example.andorids.main_function.ui.write.WriteDiaryFragment"
         android:label="fragment_write_diary"
         tools:layout="@layout/fragment_write_diary" />
-    <fragment
-        android:id="@+id/permissionFragment"
-        android:name="com.example.andorids.main_function.main_function.ui.PermissionFragment"
-        android:label="fragment_permission"
-        tools:layout="@layout/fragment_permission" >
-        <action
-            android:id="@+id/action_permissionFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
 </navigation>

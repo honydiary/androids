@@ -20,7 +20,6 @@ class PermissionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        findNavController().navigate(R.id.action_permissionFragment_to_navigation_home)
         return inflater.inflate(R.layout.fragment_permission, container, false)
     }
 }
