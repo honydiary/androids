@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.andorids.databinding.ActivityStartBinding
-import com.example.andorids.main_function.main_function.MainActivity
+import com.example.andorids.main_function.main_function.ui.HomeActivity
 
 class StartActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStartBinding
+    val TAG ="StartActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d(TAG, "test")
 
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 }
