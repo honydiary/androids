@@ -5,13 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".main_function.ui.write.WriteDiaryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-<!--    push test용 주석   -->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="키보드로 글 적는 곳이빈다 나대지 마세연" />
 
 </FrameLayout>

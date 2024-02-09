@@ -1,17 +1,12 @@
 package com.example.andorids.main_function.ui.notifications
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.andorids.R
 import com.example.andorids.databinding.FragmentProfileBinding
-import com.example.andorids.main_function.ui.recode.RecodeDiary
 
 class ProfileFragment : Fragment() {
 
