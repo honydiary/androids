@@ -1,19 +1,33 @@
 package com.example.andorids.main_function.ui.recode
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import com.example.andorids.R
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.example.andorids.databinding.ActivityHomeBinding
+import com.example.andorids.databinding.FragmentRecodeDiaryBinding
+
 
 class RecodeDiary : Fragment() {
 
+    private val binding by lazy { FragmentRecodeDiaryBinding.inflate(layoutInflater) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recode_diary, container, false)
+    ): View {
+
+        binding.idRecodeToolBar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+
+        return binding.root
     }
+
 }

@@ -8,11 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!--    profile 색상-->
     <color name="main">#FF667CF0</color>
-
-<!--    로그아웃 버튼 색상-->
     <color name="red">#FFF06666</color>
 
-
+    <!--    recodeDiary 색상-->
+    <color name="deep_blue">#FF1C234E</color>
+    <color name="dark_blue">#FF020618</color>
+    <color name="recode_blue">#FF354184</color>
+    <color name="light_blue">#FFD3D9FA</color>
 
 </resources>

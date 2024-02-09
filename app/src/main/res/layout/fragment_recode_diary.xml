@@ -3,12 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main_function.ui.recode.RecodeDiary">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main_function.ui.recode.RecodeDiary"
+    android:background="@color/dark_blue">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/id_recode_toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/deep_blue"
+            app:title="녹음일기"
+            app:titleTextColor="@android:color/white"
+            app:navigationIcon="@drawable/ic_back_24dp"/>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/id_recode_recodingView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:background="@color/dark_blue"
+                    android:orientation="horizontal"/>
+
+                <LinearLayout
+                    android:id="@+id/id_recode_bottomView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/recode_blue"
+                    android:orientation="horizontal"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/id_recode_recodeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:src="@drawable/ic_keyboard_voice_24dp"
+                app:layout_anchor="@id/id_recode_recodingView"
+                app:layout_anchorGravity="bottom|center"
+                android:backgroundTint="@color/recode_blue"
+                app:backgroundTint="@color/light_blue"
+                app:borderWidth="2dp"
+                app:tint="@color/light_blue"
+                app:fabCustomSize="72dp"
+                app:maxImageSize="28dp"
+                android:contentDescription="녹음 버튼 입니다 ^^" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
 </FrameLayout>
