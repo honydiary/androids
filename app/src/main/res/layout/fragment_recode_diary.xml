@@ -39,7 +39,35 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:background="@color/dark_blue"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/id_recode_firstText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="오늘은 어떤일이 있었나요?\n천천히 말씀해주세요"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/id_recode_recodingText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:padding="24dp"/>
+                    </ScrollView>
+
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/id_recode_bottomView"

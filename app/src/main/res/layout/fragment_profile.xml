@@ -102,7 +102,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="24dp"
                     android:text="로그아웃"
                     android:textColor="@color/button_grey"
                     android:textStyle="bold"
