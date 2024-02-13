@@ -50,7 +50,6 @@ class DiaryFragment : Fragment() {
         recyclerAdapta = AllAdapter(requireContext())
         recyclerAdapta.dateList = dateList
         recyclerAdapta.notifyItemRemoved(0)
-        recyclerAdapta.test()
         with(binding) {
             recyclerView.adapter = recyclerAdapta
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
