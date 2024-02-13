@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/bac_profile_item">
+
+    <TextView
+        android:id="@+id/id_profile_item_goodWrodText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인생은 가까이서 보면 비극이지만, 멀리서 보면 안보일걸."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:padding="32dp"
+        android:paddingStart="48dp"
+        android:paddingEnd="48dp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+</LinearLayout>

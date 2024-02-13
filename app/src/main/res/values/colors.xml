@@ -11,6 +11,8 @@
     <!--    profile 색상-->
     <color name="main">#FF667CF0</color>
     <color name="red">#FFF06666</color>
+    <color name="grey">#FFAAAAAA</color>
+    <color name="button_grey">#FFA4A4A4</color>
 
     <!--    recodeDiary 색상-->
     <color name="deep_blue">#FF1C234E</color>

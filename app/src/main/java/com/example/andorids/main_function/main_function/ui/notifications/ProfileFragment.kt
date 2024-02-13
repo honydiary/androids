@@ -6,15 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.andorids.databinding.FragmentProfileBinding
+import com.example.andorids.main_function.main_function.ui.notifications.MyAdapter
+
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: MyAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,27 +30,19 @@ class ProfileFragment : Fragment() {
         val root: View = binding.root
 
 
+        recyclerView = binding.idProfileGoodWordRecycler
+        recyclerView.layoutManager = LinearLayoutManager(activity)
 
-//        binding.idProfileSeeGoodWordButton.setOnClickListener {
-//            val recodeDiary = RecodeDiary()
-//            addFragment(recodeDiary)
-//        }
+        // 테스트 데이터
+        val data = listOf("많은 사람은 TV 앞에 앉아서, 혹은 핸드폰을 만지는 것 이외에는 많은 일에 도전하지 않는다. 너도 마찬가지다. 제발 좀 움직이기라도 해라. 명언만 찾아다니지 말고;; ㅇㅈ?", "사람은 변화하고, 발전한다. 그런데 너는 대체 왜...", "속임수는 병법의 기본이다. 그러게 왜 속고 그러냐.", "상처는 뼈에 새기고, 은혜는 뭐 꼭 안 새겨고 될듯.")
+
+        // 어댑터 설정
+        adapter = MyAdapter(data)
+        recyclerView.adapter = adapter
 
         return root
     }
 
-//    private fun addFragment(fragment: Fragment) {
-//        // FragmentManager를 사용하여 FragmentTransaction 시작
-//        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-//        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-//
-//        // 새로운 Fragment를 위에 추가 (기존의 Fragment는 숨김)
-//        fragmentTransaction.replace(R.id.nav_host_fragment_activity_home, fragment)
-//        fragmentTransaction.addToBackStack(null) // 백스택에 추가하여 뒤로가기 가능하도록 함
-//
-//        // FragmentTransaction을 커밋하여 변경 사항을 적용
-//        fragmentTransaction.commit()
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
