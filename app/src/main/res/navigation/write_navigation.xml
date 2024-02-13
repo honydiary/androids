@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/write_navigation"
+    app:startDestination="@id/typeFragment">
+
+    <fragment
+        android:id="@+id/writeDiaryFragment2"
+        android:name="com.example.andorids.main_function.ui.write.WriteDiaryFragment"
+        android:label="fragment_write_diary"
+        tools:layout="@layout/fragment_write_diary" >
+        <action
+            android:id="@+id/action_writeDiaryFragment2_to_typeFragment"
+            app:destination="@id/typeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recodeDiaryFragment"
+        android:name="com.example.andorids.main_function.main_function.ui.write_manager.recode.RecodeDiaryFragment"
+        android:label="RecodeDiaryFragment" >
+        <action
+            android:id="@+id/action_recodeDiaryFragment_to_typeFragment"
+            app:destination="@id/typeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/typeFragment"
+        android:name="com.example.andorids.main_function.main_function.ui.write_manager.type.TypeFragment"
+        android:label="fragment_type"
+        tools:layout="@layout/fragment_type" >
+        <action
+            android:id="@+id/action_typeFragment_to_writeDiaryFragment2"
+            app:destination="@id/writeDiaryFragment2" />
+        <action
+            android:id="@+id/action_typeFragment_to_recodeDiaryFragment"
+            app:destination="@id/recodeDiaryFragment" />
+    </fragment>
+</navigation>

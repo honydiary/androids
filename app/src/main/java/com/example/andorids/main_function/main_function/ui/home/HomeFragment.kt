@@ -1,28 +1,32 @@
 package com.example.andorids.main_function.ui.home
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.example.andorids.R
 import com.example.andorids.databinding.FragmentHomeBinding
+import com.example.andorids.main_function.main_function.ui.HomeActivity
 import com.example.andorids.main_function.main_function.ui.home.view_pager.CardAdapter
 import com.example.andorids.main_function.main_function.ui.home.view_pager.CardItem
 import com.example.andorids.main_function.main_function.ui.home.view_pager.CardPagerAdapter
+import com.example.andorids.main_function.main_function.ui.write_manager.WriteManagerActivity
+import com.example.andorids.main_function.main_function.ui.write_manager.WriteViewModel
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     var fabStatuse = false
+//    val writeVewModel by activityViewModels<WriteViewModel>()
+    lateinit var intent: Intent
 
     private val binding get() = _binding!!
     val TAG = "HomeFragment"
@@ -35,14 +39,20 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        intent = Intent(requireContext(), WriteManagerActivity::class.java)
         binding.fabMain.setOnClickListener {
             fabStatuse = onFABs(fabStatuse)
         }
         binding.fabSub1.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_recodeDiary)
+//            writeVewModel.receiveType.value = "recode"
+            intent.putExtra("inputType", "recode")
+            startActivity(intent)
         }
         binding.fabSub2.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_writeDiaryFragment)
+//            writeVewModel.receiveType.value ="write"
+            intent.putExtra("inputType", "write")
+            startActivity(intent)
+//            findNavController().navigate(R.id.action_homeFragment_to_writeDiaryFragment)
         }
 
         val testCardAdapter =
