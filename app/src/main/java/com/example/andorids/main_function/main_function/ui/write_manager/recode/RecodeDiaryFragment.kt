@@ -46,6 +46,10 @@ class RecodeDiaryFragment : Fragment() {
         // 권한 설정
         requestPermission()
 
+        binding.idRecodeToolBar.setNavigationOnClickListener {
+            requireActivity().finish()
+        }
+
 
         binding.idRecodeRecodeButton.setOnClickListener {
             Log.d("RecodeDiaryFragment", "recodeStr : $recodeStr")
