@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
 
     private val binding get() = _binding!!
     val TAG = "HomeFragment"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,12 +34,16 @@ class HomeFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val displayMetrics = resources.displayMetrics
+        val height = displayMetrics.heightPixels
+
+        Log.d(TAG, "${height}")
 
 
         initPager()
         intent = Intent(requireContext(), WriteManagerActivity::class.java)
         binding.fabMain.setOnClickListener {
-            fabStatuse = onFABs(fabStatuse)
+            fabStatuse = onFABs(fabStatuse, height)
         }
         binding.fabSub1.setOnClickListener {
 //            writeVewModel.receiveType.value = "recode"
@@ -58,13 +63,16 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        fabStatuse = false
+        Log.d(TAG, "state : destroy")
         _binding = null
     }
 
-    fun onFABs(isStatuse :Boolean): Boolean {
-        if (isStatuse == false){
-            ObjectAnimator.ofFloat(binding.fabSub1, "translationY", -200f).apply { start() }
-            ObjectAnimator.ofFloat(binding.fabSub2, "translationY", -400f).apply { start() }
+    fun onFABs(isStatate :Boolean, height : Int): Boolean {
+        Log.d(TAG, "state : $isStatate")
+        if (isStatate == false){
+            ObjectAnimator.ofFloat(binding.fabSub1, "translationY", -(height/13).toFloat()).apply { start() }
+            ObjectAnimator.ofFloat(binding.fabSub2, "translationY", -(height/7).toFloat()).apply { start() }
             ObjectAnimator.ofFloat(binding.fabMain, View.ROTATION, 0f,315f).apply { duration = 700 }.start()
         }
         else{
@@ -73,7 +81,7 @@ class HomeFragment : Fragment() {
             ObjectAnimator.ofFloat(binding.fabMain, View.ROTATION, 315f,0f).apply { duration = 700 }.start()
 
         }
-        return !isStatuse
+        return !isStatate
     }
 
     fun initPager(){

@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.andorids.R
 import com.example.andorids.databinding.FragmentRecodeDiaryBinding
 import com.example.andorids.main_function.ui.notifications.ProfileViewModel
@@ -47,6 +48,7 @@ class RecodeDiaryFragment : Fragment() {
         requestPermission()
 
         binding.idRecodeToolBar.setNavigationOnClickListener {
+            //TODO:함수로 서버에 내용전달하는거 넣어놔야됨ㅇㅇ
             requireActivity().finish()
         }
 
@@ -197,6 +199,8 @@ class RecodeDiaryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
         // SpeechRecognizer 종료
-        speechRecognizer.destroy()
+        if (::speechRecognizer.isInitialized){
+            speechRecognizer.destroy()
+        }
     }
 }
