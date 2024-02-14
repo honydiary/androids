@@ -21,7 +21,7 @@
             android:background="@color/deep_blue"
             app:title="녹음일기"
             app:titleTextColor="@android:color/white"
-            app:navigationIcon="@drawable/ic_back_24dp"/>
+            app:navigationIcon="@drawable/ic_back_white"/>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

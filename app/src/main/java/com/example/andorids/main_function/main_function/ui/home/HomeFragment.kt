@@ -12,18 +12,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.andorids.R
 import com.example.andorids.databinding.FragmentHomeBinding
-import com.example.andorids.main_function.main_function.ui.home.view_pager.CardAdapter
-import com.example.andorids.main_function.main_function.ui.home.view_pager.CardItem
-import com.example.andorids.main_function.main_function.ui.home.view_pager.CardPagerAdapter
+import com.example.andorids.main_function.main_function.ui.home.view_pager.ViewPagerAdapter
 
 class HomeFragment : Fragment() {
 
+    private lateinit var goodSentenceAdapter : ViewPagerAdapter
     private var _binding: FragmentHomeBinding? = null
     var fabStatuse = false
-
+    val goodSentences = mutableListOf<String>("1", "2", "3")
     private val binding get() = _binding!!
     val TAG = "HomeFragment"
     override fun onCreateView(
@@ -33,8 +35,10 @@ class HomeFragment : Fragment() {
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+
+        initPager()
         binding.fabMain.setOnClickListener {
             fabStatuse = onFABs(fabStatuse)
         }
@@ -44,84 +48,6 @@ class HomeFragment : Fragment() {
         binding.fabSub2.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_writeDiaryFragment)
         }
-
-        val testCardAdapter =
-            CardPagerAdapter(requireActivity().applicationContext)
-        testCardAdapter.addCardItem(
-            CardItem(
-                "First Card",
-                "First Card"
-            )
-        )
-        testCardAdapter.addCardItem(
-            CardItem(
-                "Second Card",
-                "Second Card"
-            )
-        )
-        testCardAdapter.addCardItem(
-            CardItem(
-                "Third Card",
-                "Third Card"
-            )
-        )
-
-        var mLastOffset = 0f
-
-        binding.cardViewPager.adapter = testCardAdapter
-        binding.cardViewPager.offscreenPageLimit = 3
-        binding.cardViewPager.currentItem = 0
-
-        binding.cardViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                val realCurrentPosition: Int
-                val nextPosition: Int
-                val baseElevation: Float = (binding.cardViewPager.adapter as CardPagerAdapter).getBaseElevation()
-                val realOffset: Float
-                val goingLeft: Boolean = mLastOffset > positionOffset
-
-                if (goingLeft) {
-                    realCurrentPosition = position + 1
-                    nextPosition = position
-                    realOffset = 1 - positionOffset
-                } else {
-                    nextPosition = position + 1
-                    realCurrentPosition = position
-                    realOffset = positionOffset
-                }
-
-                if (nextPosition > (binding.cardViewPager.adapter as CardPagerAdapter).count - 1
-                    || realCurrentPosition > (binding.cardViewPager.adapter as CardPagerAdapter).count - 1) {
-                    return
-                }
-
-                val currentCard: CardView = (binding.cardViewPager.adapter as CardPagerAdapter).getCardViewAt(realCurrentPosition)
-
-                currentCard.scaleX = (1 + 0.1 * (1 - realOffset)).toFloat()
-                currentCard.scaleY = (1 + 0.1 * (1 - realOffset)).toFloat()
-
-                currentCard.cardElevation = baseElevation + (baseElevation
-                        * (CardAdapter.MAX_ELEVATION_FACTOR - 1) * (1 - realOffset))
-
-                val nextCard: CardView = (binding.cardViewPager.adapter as CardPagerAdapter).getCardViewAt(nextPosition)
-
-                nextCard.scaleX = (1 + 0.1 * realOffset).toFloat()
-                nextCard.scaleY = (1 + 0.1 * realOffset).toFloat()
-
-                nextCard.cardElevation = baseElevation + (baseElevation
-                        * (CardAdapter.MAX_ELEVATION_FACTOR - 1) * realOffset)
-
-                mLastOffset = positionOffset
-            }
-
-            override fun onPageSelected(position: Int) {
-
-            }
-        })
 
 
         return binding.root
@@ -145,5 +71,18 @@ class HomeFragment : Fragment() {
 
         }
         return !isStatuse
+    }
+
+    fun initPager(){
+        goodSentenceAdapter = ViewPagerAdapter()
+        goodSentenceAdapter.goodSentences = goodSentences
+        goodSentenceAdapter.notifyItemRemoved(0)
+        Log.d(TAG,"$goodSentenceAdapter")
+        with(binding) {
+            goodSentencePager.adapter = goodSentenceAdapter
+            goodSentencePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
+            ciIndicator.setViewPager(goodSentencePager)
+        }
+
     }
 }
