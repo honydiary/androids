@@ -2,15 +2,9 @@ package com.example.andorids.main_function.main_function.ui.write_manager
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import com.example.andorids.R
 import com.example.andorids.databinding.ActivityWriteManagerBinding
-import com.example.andorids.main_function.main_function.ui.write_manager.recode.RecodeDiaryFragment
-import com.example.andorids.main_function.ui.notifications.ProfileViewModel
-import com.example.andorids.main_function.ui.write.WriteDiaryFragment
+import com.example.andorids.main_function.main_function.ui.DTO.TypeDTO
 
 
 class WriteManagerActivity : AppCompatActivity() {
@@ -21,8 +15,9 @@ class WriteManagerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(WriteViewModel::class.java)
-        val data = intent.getStringExtra("inputType")
-        viewModel.receiveType.value = data
+        val type = intent.getStringExtra("inputType")
+        val position = intent.getIntExtra("inputPosition", -1)
+        viewModel.receiveType.value = TypeDTO(type!!, position)
 
 
 

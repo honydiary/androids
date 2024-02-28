@@ -33,5 +33,35 @@
         <action
             android:id="@+id/action_typeFragment_to_recodeDiaryFragment"
             app:destination="@id/recodeDiaryFragment" />
+        <action
+            android:id="@+id/action_typeFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+        <action
+            android:id="@+id/action_typeFragment_to_refactFragment"
+            app:destination="@id/refactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.example.andorids.main_function.main_function.ui.write_manager.content.ContentFragment"
+        android:label="fragment_content"
+        tools:layout="@layout/fragment_content" >
+        <action
+            android:id="@+id/action_contentFragment_to_typeFragment"
+            app:destination="@id/typeFragment" />
+        <action
+            android:id="@+id/action_contentFragment_to_refactFragment"
+            app:destination="@id/refactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/refactFragment"
+        android:name="com.example.andorids.main_function.main_function.ui.write_manager.refact.RefactFragment"
+        android:label="fragment_refact"
+        tools:layout="@layout/fragment_refact" >
+        <action
+            android:id="@+id/action_refactFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+        <action
+            android:id="@+id/action_refactFragment_to_typeFragment"
+            app:destination="@id/typeFragment" />
     </fragment>
 </navigation>

@@ -28,11 +28,13 @@ class TypeFragment : Fragment() {
     ): View {
         _binding = FragmentTypeBinding.inflate(inflater, container, false)
         Log.d(TAG, "state : in")
-        viewModel.receiveType.observe(viewLifecycleOwner){ type ->
-            Log.d(TAG, "state : $type")
-            when(type){
+        viewModel.receiveType.observe(viewLifecycleOwner){ data ->
+            Log.d(TAG, "state : $data")
+            when(data.type){
                 "write" -> findNavController().navigate(R.id.action_typeFragment_to_writeDiaryFragment2)
                 "recode" -> findNavController().navigate(R.id.action_typeFragment_to_recodeDiaryFragment)
+                "refact" -> findNavController().navigate(R.id.action_typeFragment_to_refactFragment)
+                "view" -> findNavController().navigate(R.id.action_typeFragment_to_contentFragment)
             }
         }
         return binding.root

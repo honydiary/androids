@@ -11,8 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.andorids.databinding.FragmentHomeBinding
+import com.example.andorids.main_function.main_function.ui.DTO.TypeDTO
+import com.example.andorids.main_function.main_function.ui.diary.adapter.AllAdapter
+import com.example.andorids.main_function.main_function.ui.diary.adapter.test
 import com.example.andorids.main_function.main_function.ui.home.view_pager.ViewPagerAdapter
 import com.example.andorids.main_function.main_function.ui.write_manager.WriteManagerActivity
+import javax.security.auth.callback.Callback
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +37,7 @@ class HomeFragment : Fragment() {
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val displayMetrics = resources.displayMetrics
         val height = displayMetrics.heightPixels
@@ -94,6 +99,6 @@ class HomeFragment : Fragment() {
             goodSentencePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
             ciIndicator.setViewPager(goodSentencePager)
         }
-
     }
+
 }
