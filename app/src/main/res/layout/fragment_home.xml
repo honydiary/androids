@@ -6,14 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".main_function.ui.home.HomeFragment"
     >
-
-    <TextView
-        android:id="@+id/text_home"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSub1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main"/>
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_mic"
+        app:fabSize="mini"
+        app:layout_constraintTop_toTopOf="@id/fabMain"
+        app:layout_constraintBottom_toBottomOf="@id/fabMain"
+        app:layout_constraintStart_toStartOf="@id/fabMain"
+        app:layout_constraintEnd_toEndOf="@id/fabMain"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSub2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_edit_note"
+        app:fabSize="mini"
+        app:layout_constraintTop_toTopOf="@id/fabMain"
+        app:layout_constraintBottom_toBottomOf="@id/fabMain"
+        app:layout_constraintStart_toStartOf="@id/fabMain"
+        app:layout_constraintEnd_toEndOf="@id/fabMain"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        android:tint="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/goodSentencePager"
+        app:layout_constraintBottom_toTopOf="@id/goodSentencePager"
+        android:text="오늘의 3마디"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardbold"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/goodSentencePager"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="70dp"/>
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/ci_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/goodSentencePager"
+        app:layout_constraintEnd_toEndOf="@id/goodSentencePager"
+        app:layout_constraintStart_toStartOf="@id/goodSentencePager"
+        app:layout_constraintTop_toTopOf="@id/goodSentencePager"
+        app:layout_constraintVertical_bias="0.85"
+        app:ci_drawable="@drawable/ci_un_select"
+        app:ci_drawable_unselected="@drawable/ci_un_select"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
